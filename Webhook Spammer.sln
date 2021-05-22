@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook Spammer", "Webhook Spammer\Webhook Spammer.csproj", "{100F1E4B-841B-43F8-919B-82CE1603701C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{100F1E4B-841B-43F8-919B-82CE1603701C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100F1E4B-841B-43F8-919B-82CE1603701C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100F1E4B-841B-43F8-919B-82CE1603701C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100F1E4B-841B-43F8-919B-82CE1603701C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76E9F651-0C6D-4CF2-B328-C279E5CB031C}
+	EndGlobalSection
+EndGlobal
