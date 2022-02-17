@@ -16,7 +16,16 @@ namespace Webhook_Spammer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            
+            try
+            {
+                Application.Run(new Form1());
+            }
+            catch
+            {
+                MessageBox.Show("Too much trolling, the program crashed...", "Webhook Troller", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Application.Run(new Form1());
+            }
         }
     }
 }

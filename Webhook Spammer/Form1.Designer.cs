@@ -46,6 +46,9 @@ namespace Webhook_Spammer
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -53,7 +56,7 @@ namespace Webhook_Spammer
             this.button1.BackColor = System.Drawing.Color.DimGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Lime;
-            this.button1.Location = new System.Drawing.Point(15, 257);
+            this.button1.Location = new System.Drawing.Point(11, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -142,7 +145,7 @@ namespace Webhook_Spammer
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(325, 249);
+            this.label4.Location = new System.Drawing.Point(325, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 10;
@@ -154,7 +157,7 @@ namespace Webhook_Spammer
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(173, 267);
+            this.label5.Location = new System.Drawing.Point(173, 282);
             this.label5.MaximumSize = new System.Drawing.Size(230, 20);
             this.label5.MinimumSize = new System.Drawing.Size(230, 10);
             this.label5.Name = "label5";
@@ -172,7 +175,6 @@ namespace Webhook_Spammer
             this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBox4.Size = new System.Drawing.Size(133, 20);
             this.textBox4.TabIndex = 13;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -189,7 +191,7 @@ namespace Webhook_Spammer
             this.button2.BackColor = System.Drawing.Color.DimGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.Location = new System.Drawing.Point(96, 257);
+            this.button2.Location = new System.Drawing.Point(92, 307);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 15;
@@ -220,7 +222,6 @@ namespace Webhook_Spammer
             this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBox6.Size = new System.Drawing.Size(321, 20);
             this.textBox6.TabIndex = 17;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -232,12 +233,50 @@ namespace Webhook_Spammer
             this.label7.TabIndex = 18;
             this.label7.Text = "Avatar URL";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gold;
+            this.label8.Location = new System.Drawing.Point(13, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 14);
+            this.label8.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.Location = new System.Drawing.Point(173, 320);
+            this.label9.MaximumSize = new System.Drawing.Size(230, 20);
+            this.label9.MinimumSize = new System.Drawing.Size(230, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(230, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "0";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label10.Location = new System.Drawing.Point(303, 298);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Total requests sent:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(415, 292);
+            this.ClientSize = new System.Drawing.Size(415, 342);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -255,10 +294,13 @@ namespace Webhook_Spammer
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(431, 381);
+            this.MinimumSize = new System.Drawing.Size(431, 381);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aleksandar\'s Discord Webhook Spammer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +324,9 @@ namespace Webhook_Spammer
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 

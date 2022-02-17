@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Webhook_Spammer
 {
     public partial class Form1 : Form
     {
-        bool Spamming = true;
+        public HttpClient httpClient = new HttpClient();
+        bool Spamming = false;
         int Requests;
+        int TotalRequests;
+
         public Form1()
         {
             InitializeComponent();
@@ -63,31 +61,44 @@ namespace Webhook_Spammer
             SpamWebhook();
         }
 
-        private static byte[] Post(string Url, NameValueCollection Pairs)
+        private void RateLimited(bool Value)
         {
-            using (WebClient webClient = new WebClient())
+            if (Value == true)
             {
-                return webClient.UploadValues(Url, Pairs);
+                this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate  () {  label8.Text = "You are being rate limited!";  });
+            }
+            else if (Value == false)
+            {
+                this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate  () {  label8.Text = "";  });
             }
         }
 
-        private static void PostWebhook(string Url, string Message, string Username, string AvatarURL)
+        private void Post(string Url, HttpContent Pairs)
         {
-            Post(Url, new System.Collections.Specialized.NameValueCollection()
+            Thread WebhookSendThread = new Thread(async  () =>
             {
+                try
                 {
-                    "username",
-                    Username
-                },
+                    await httpClient.PostAsync(Url, Pairs);
+                    RateLimited(false);
+                }
+                catch
                 {
-                    "avatar_url",
-                    AvatarURL
-                },
-                {
-                    "content",
-                    Message
+                    RateLimited(true);
+                    await httpClient.PostAsync(Url, Pairs);
                 }
             });
+
+            WebhookSendThread.Start();
+        }
+
+
+        private void PostWebhook(string Url, string Message, string Username, string AvatarURL)
+        {
+            
+            string data = JsonConvert.SerializeObject(new { content = Message, username = Username, avatar_url = AvatarURL });
+
+            Post(Url, new StringContent(data, System.Text.Encoding.UTF8, "application/json"));
         }
 
         private async void SpamWebhook()
@@ -100,6 +111,8 @@ namespace Webhook_Spammer
                     {
                         PostWebhook(textBox1.Text, textBox5.Text, textBox4.Text, textBox6.Text);
                         Requests = Requests + 1;
+                        TotalRequests = TotalRequests + 1;
+                        label9.Text = Convert.ToString(TotalRequests);
                         label5.Text = Convert.ToString(Requests);
                     }
                 }
@@ -111,7 +124,7 @@ namespace Webhook_Spammer
                 }
 
                 await Task.Delay((int)Convert.ToDouble(textBox3.Text));
-            }
+            } 
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -131,3 +144,5 @@ namespace Webhook_Spammer
         }
     }
 }
+
+// Exunys (Aleksandar)
